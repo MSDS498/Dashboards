@@ -1,0 +1,2750 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20193.19.1017.1259                               -->
+<workbook original-version='18.1' source-build='2019.3.1 (20193.19.1017.1259)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='Olist_Delivery' path='/workbooks' revision='2.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='GrpByField_DeliveryTreemap_param' datatype='string' name='[GrpByField_DeliveryTreemap_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;Customer State&quot;'>
+        <calculation class='tableau' formula='&quot;Customer State&quot;' />
+        <members>
+          <member value='&quot;Customer State&quot;' />
+          <member value='&quot;OnTime to Carrier&quot;' />
+          <member value='&quot;Nbr of Items in Order&quot;' />
+          <member value='&quot;InState vs OutOfState Customer&quot;' />
+          <member value='&quot;Product Category&quot;' />
+        </members>
+      </column>
+      <column caption='SellerID_param' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='4'>
+        <calculation class='tableau' formula='4' />
+      </column>
+      <column caption='GrpByField_Trends_param' datatype='string' name='[SellerID_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;OnTime to Carrier&quot;'>
+        <calculation class='tableau' formula='&quot;OnTime to Carrier&quot;' />
+        <members>
+          <member value='&quot;(All - Ungrouped)&quot;' />
+          <member value='&quot;InState vs OutOfState Customer&quot;' />
+          <member value='&quot;OnTime to Carrier&quot;' />
+          <member value='&quot;Nbr of Items in Order&quot;' />
+          <member value='&quot;Customer State&quot;' />
+          <member value='&quot;Product Category&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='Order_level_dataset' inline='true' name='federated.15lmwaa1vbsodb0zrc27s1ezbcff' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Order_level_dataset' name='textscan.1ke8etz0kok89k1gkfe5q167st4q'>
+            <connection class='textscan' directory='C:/Users/ashle/Documents/Personal Data/Northwestern/2019-04  fall MSDS498_Sec56 Capstone/Git_repo/Dashboards' filename='Order_level_dataset.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1ke8etz0kok89k1gkfe5q167st4q' name='Order_level_dataset.csv' table='[Order_level_dataset#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='Rww_ID' ordinal='1' />
+            <column datatype='string' name='order_id' ordinal='2' />
+            <column datatype='string' name='customer_id' ordinal='3' />
+            <column datatype='string' name='order_status' ordinal='4' />
+            <column datatype='datetime' name='order_purchase_timestamp' ordinal='5' />
+            <column datatype='datetime' name='order_approved_at' ordinal='6' />
+            <column datatype='datetime' name='order_delivered_carrier_date' ordinal='7' />
+            <column datatype='datetime' name='order_delivered_customer_date' ordinal='8' />
+            <column datatype='datetime' name='order_estimated_delivery_date' ordinal='9' />
+            <column datatype='string' name='customer_unique_id' ordinal='10' />
+            <column datatype='integer' name='customer_zip_code_prefix' ordinal='11' />
+            <column datatype='string' name='customer_city' ordinal='12' />
+            <column datatype='string' name='customer_state' ordinal='13' />
+            <column datatype='string' name='payment_type_mfu' ordinal='14' />
+            <column datatype='real' name='ttl_pd' ordinal='15' />
+            <column datatype='real' name='pmt_mthds_used' ordinal='16' />
+            <column datatype='real' name='installments_used_ttl' ordinal='17' />
+            <column datatype='real' name='payment_types_used' ordinal='18' />
+            <column datatype='real' name='nbr_items' ordinal='19' />
+            <column datatype='real' name='ttl_price' ordinal='20' />
+            <column datatype='real' name='ttl_freight' ordinal='21' />
+            <column datatype='datetime' name='ship_limit_final' ordinal='22' />
+            <column datatype='datetime' name='ship_limit_initial' ordinal='23' />
+            <column datatype='real' name='nbr_sellers' ordinal='24' />
+            <column datatype='real' name='nbr_products' ordinal='25' />
+            <column datatype='string' name='seller_id_mfu' ordinal='26' />
+            <column datatype='string' name='product_id_mfu' ordinal='27' />
+            <column datatype='string' name='seller_id' ordinal='28' />
+            <column datatype='real' name='seller_zip_code_prefix' ordinal='29' />
+            <column datatype='string' name='seller_city' ordinal='30' />
+            <column datatype='string' name='seller_state' ordinal='31' />
+            <column datatype='real' name='nbr_photos' ordinal='32' />
+            <column datatype='real' name='ttl_wt' ordinal='33' />
+            <column datatype='real' name='ttl_length' ordinal='34' />
+            <column datatype='real' name='ttl_height' ordinal='35' />
+            <column datatype='real' name='ttl_width' ordinal='36' />
+            <column datatype='string' name='product_ctgry_mfu' ordinal='37' />
+            <column datatype='integer' name='nbr_rws' ordinal='38' />
+            <column datatype='real' name='avg_score' ordinal='39' />
+            <column datatype='datetime' name='earliest_review_dt' ordinal='40' />
+            <column datatype='datetime' name='latest_review_dt' ordinal='41' />
+            <column datatype='real' name='lat_customer' ordinal='42' />
+            <column datatype='real' name='long_customer' ordinal='43' />
+            <column datatype='real' name='lat_seller' ordinal='44' />
+            <column datatype='real' name='long_seller' ordinal='45' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rww_ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Rww_ID]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>Rww_ID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_id]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_id</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[order_status]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_status</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_purchase_timestamp</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[order_purchase_timestamp]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_purchase_timestamp</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_approved_at</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[order_approved_at]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_approved_at</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_delivered_carrier_date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[order_delivered_carrier_date]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_delivered_carrier_date</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_delivered_customer_date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[order_delivered_customer_date]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_delivered_customer_date</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>order_estimated_delivery_date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[order_estimated_delivery_date]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>order_estimated_delivery_date</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_unique_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_unique_id]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>customer_unique_id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_zip_code_prefix</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[customer_zip_code_prefix]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>customer_zip_code_prefix</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_city]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>customer_city</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[customer_state]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>customer_state</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>payment_type_mfu</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[payment_type_mfu]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>payment_type_mfu</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_pd</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_pd]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_pd</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pmt_mthds_used</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pmt_mthds_used]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>pmt_mthds_used</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>installments_used_ttl</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[installments_used_ttl]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>installments_used_ttl</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>payment_types_used</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[payment_types_used]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>payment_types_used</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nbr_items</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[nbr_items]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>nbr_items</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_price]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_price</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_freight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_freight]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_freight</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ship_limit_final</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[ship_limit_final]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ship_limit_final</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ship_limit_initial</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[ship_limit_initial]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ship_limit_initial</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nbr_sellers</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[nbr_sellers]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>nbr_sellers</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nbr_products</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[nbr_products]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>nbr_products</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_id_mfu</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_id_mfu]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>seller_id_mfu</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_id_mfu</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_id_mfu]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>product_id_mfu</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_id]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>seller_id</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_zip_code_prefix</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[seller_zip_code_prefix]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>seller_zip_code_prefix</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_city]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>seller_city</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>seller_state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[seller_state]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>seller_state</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nbr_photos</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[nbr_photos]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>nbr_photos</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_wt</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_wt]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_wt</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_length</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_length]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_length</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_height</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_height]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_height</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ttl_width</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[ttl_width]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>ttl_width</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>product_ctgry_mfu</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[product_ctgry_mfu]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>product_ctgry_mfu</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nbr_rws</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[nbr_rws]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>nbr_rws</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_score]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>avg_score</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>earliest_review_dt</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[earliest_review_dt]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>earliest_review_dt</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>latest_review_dt</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[latest_review_dt]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>latest_review_dt</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat_customer</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[lat_customer]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>lat_customer</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>long_customer</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[long_customer]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>long_customer</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lat_seller</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[lat_seller]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>lat_seller</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>long_seller</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[long_seller]</local-name>
+            <parent-name>[Order_level_dataset.csv]</parent-name>
+            <remote-alias>long_seller</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Ontime_To_Cust_Flag' datatype='string' name='[Calculation_1445655533181300736]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [order_delivered_customer_date] &gt; dateadd(&apos;day&apos;, 1, [order_estimated_delivery_date]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+      </column>
+      <column caption='Pct_Late_to_Carrier' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665 1]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CoUNT( IF [Ontime_To_Cust_Flag (copy)]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+      </column>
+      <column caption='Pct_Late_to_Cust' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CoUNT( IF [Calculation_1445655533181300736]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+      </column>
+      <column caption='Seller_Param_Filter' datatype='boolean' name='[Calculation_1445655533421211650]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[seller_id] = CASE [Parameters].[Parameter 1]&#13;&#10;WHEN 1 THEN &quot;6560211a19b47992c3666cc44a7e94c0&quot;&#13;&#10;WHEN 2 THEN &quot;4a3ca9315b744ce9f8e9374361493884&quot;&#13;&#10;WHEN 3 THEN &quot;cc419e0650a3c5ba77189a1882b7556a&quot;&#13;&#10;WHEN 4 THEN &quot;1f50f920176fa81dab994f9023523100&quot;&#13;&#10;WHEN 5 THEN &quot;da8622b14eb17ae2831f4ac5b9dab84a&quot;&#13;&#10;WHEN 6 THEN &quot;955fee9216a65b617aa5c0531780ce60&quot;&#13;&#10;WHEN 7 THEN &quot;ea8482cd71df3c1969d7b9473ff13abc&quot;&#13;&#10;WHEN 8 THEN &quot;7a67c85e85bb2ce8582c35f2203ad736&quot;&#13;&#10;WHEN 9 THEN &quot;4869f7a5dfa277a7dca6462dcf3b52b2&quot;&#13;&#10;WHEN 10 THEN &quot;3d871de0142ce09b7081e2b9d1733cb1&quot;&#13;&#10;WHEN 11 THEN &quot;7c67e1448b00f6e969d365cea6b010ab&quot;&#13;&#10;WHEN 12 THEN &quot;8b321bb669392f5163d04c59e235e066&quot;&#13;&#10;WHEN 13 THEN &quot;1025f0e2d44d7041d6cf58b6550e0bfa&quot;&#13;&#10;ELSE [seller_id]&#13;&#10;END' />
+      </column>
+      <column caption='GrpByCalcField_DeliveryTreemap' datatype='string' name='[Calculation_1445655533500497923]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [Parameters].[GrpByField_DeliveryTreemap_param (copy)]&#13;&#10;WHEN &quot;Customer State&quot; THEN [customer_state]&#13;&#10;WHEN &quot;OnTime to Carrier&quot; THEN [Ontime_To_Cust_Flag (copy)]&#13;&#10;WHEN &quot;Nbr of Items in Order&quot; THEN str([nbr_items])&#13;&#10;WHEN &quot;InState vs OutOfState Customer&quot; THEN [Calculation_1445655533501517828]&#13;&#10;WHEN &quot;Product Category&quot; THEN [product_ctgry_mfu]&#13;&#10;ELSE [customer_state]&#13;&#10;END' />
+      </column>
+      <column caption='SameState_or_OutOfState_Cust_Flag' datatype='string' name='[Calculation_1445655533501517828]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [customer_state]=[seller_state] then &quot;In-State Customer&quot; ELSE &quot;Out-of-State Customer&quot; END' />
+      </column>
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column caption='GrpByCalcField_Trends' datatype='string' name='[GrpByCalcField_DeliveryTreemap (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [Parameters].[SellerID_param (copy)]&#13;&#10;WHEN &quot;(All - Ungrouped)&quot; THEN &quot;(All - Ungrouped)&quot;&#13;&#10;WHEN &quot;Customer State&quot; THEN [customer_state]&#13;&#10;WHEN &quot;OnTime to Carrier&quot; THEN [Ontime_To_Cust_Flag (copy)]&#13;&#10;WHEN &quot;Nbr of Items in Order&quot; THEN str([nbr_items])&#13;&#10;WHEN &quot;InState vs OutOfState Customer&quot; THEN [Calculation_1445655533501517828]&#13;&#10;WHEN &quot;Product Category&quot; THEN [product_ctgry_mfu]&#13;&#10;ELSE &quot;(All - Ungrouped)&quot;&#13;&#10;END' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Ontime_To_Carrier_Flag' datatype='string' name='[Ontime_To_Cust_Flag (copy)]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [order_delivered_carrier_date] &gt; dateadd(&apos;day&apos;, 1, [ship_limit_final]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+      </column>
+      <column caption='Rww ID' datatype='integer' name='[Rww_ID]' role='dimension' type='ordinal' />
+      <column caption='Avg Score' datatype='real' name='[avg_score]' role='measure' type='quantitative' />
+      <column caption='Customer City' datatype='string' name='[customer_city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+      <column caption='Customer State' datatype='string' name='[customer_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Customer Unique Id' datatype='string' name='[customer_unique_id]' role='dimension' type='nominal' />
+      <column caption='Customer Zip Code Prefix' datatype='integer' default-format='*00000' name='[customer_zip_code_prefix]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <column caption='Earliest Review Dt' datatype='datetime' name='[earliest_review_dt]' role='dimension' type='ordinal' />
+      <column caption='Installments Used Ttl' datatype='real' name='[installments_used_ttl]' role='measure' type='quantitative' />
+      <column aggregation='Avg' caption='Lat Customer' datatype='real' name='[lat_customer]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Lat Seller' datatype='real' name='[lat_seller]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column caption='Latest Review Dt' datatype='datetime' name='[latest_review_dt]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' caption='Long Customer' datatype='real' name='[long_customer]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Long Seller' datatype='real' name='[long_seller]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Nbr Items' datatype='real' name='[nbr_items]' role='measure' type='quantitative' />
+      <column caption='Nbr Photos' datatype='real' name='[nbr_photos]' role='measure' type='quantitative' />
+      <column caption='Nbr Products' datatype='real' name='[nbr_products]' role='measure' type='quantitative' />
+      <column caption='Nbr Rws' datatype='integer' name='[nbr_rws]' role='measure' type='quantitative' />
+      <column caption='Nbr Sellers' datatype='real' name='[nbr_sellers]' role='measure' type='quantitative' />
+      <column caption='Order Approved At' datatype='datetime' name='[order_approved_at]' role='dimension' type='ordinal' />
+      <column caption='Order Delivered Carrier Date' datatype='datetime' name='[order_delivered_carrier_date]' role='dimension' type='ordinal' />
+      <column caption='Order Delivered Customer Date' datatype='datetime' name='[order_delivered_customer_date]' role='dimension' type='ordinal' />
+      <column caption='Order Estimated Delivery Date' datatype='datetime' name='[order_estimated_delivery_date]' role='dimension' type='ordinal' />
+      <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+      <column caption='Order Purchase Timestamp' datatype='datetime' name='[order_purchase_timestamp]' role='dimension' type='ordinal' />
+      <column caption='Order Status' datatype='string' name='[order_status]' role='dimension' type='nominal' />
+      <column caption='Payment Type Mfu' datatype='string' name='[payment_type_mfu]' role='dimension' type='nominal' />
+      <column caption='Payment Types Used' datatype='real' name='[payment_types_used]' role='measure' type='quantitative' />
+      <column caption='Pmt Mthds Used' datatype='real' name='[pmt_mthds_used]' role='measure' type='quantitative' />
+      <column caption='Product Ctgry Mfu' datatype='string' name='[product_ctgry_mfu]' role='dimension' type='nominal' />
+      <column caption='Product Id Mfu' datatype='string' name='[product_id_mfu]' role='dimension' type='nominal' />
+      <column caption='Seller City' datatype='string' name='[seller_city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Seller Id' datatype='string' name='[seller_id]' role='dimension' type='nominal' />
+      <column caption='Seller Id Mfu' datatype='string' name='[seller_id_mfu]' role='dimension' type='nominal' />
+      <column caption='Seller State' datatype='string' name='[seller_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Seller Zip Code Prefix' datatype='real' default-format='*00000' name='[seller_zip_code_prefix]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
+      <column caption='Ship Limit Final' datatype='datetime' name='[ship_limit_final]' role='dimension' type='ordinal' />
+      <column caption='Ship Limit Initial' datatype='datetime' name='[ship_limit_initial]' role='dimension' type='ordinal' />
+      <column caption='Ttl Freight' datatype='real' name='[ttl_freight]' role='measure' type='quantitative' />
+      <column caption='Ttl Height' datatype='real' name='[ttl_height]' role='measure' type='quantitative' />
+      <column caption='Ttl Length' datatype='real' name='[ttl_length]' role='measure' type='quantitative' />
+      <column caption='Ttl Pd' datatype='real' name='[ttl_pd]' role='measure' type='quantitative' />
+      <column caption='Ttl Price' datatype='real' name='[ttl_price]' role='measure' type='quantitative' />
+      <column caption='Ttl Width' datatype='real' name='[ttl_width]' role='measure' type='quantitative' />
+      <column caption='Ttl Wt' datatype='real' name='[ttl_wt]' role='measure' type='quantitative' />
+      <column-instance column='[GrpByCalcField_DeliveryTreemap (copy)]' derivation='None' name='[none:GrpByCalcField_DeliveryTreemap (copy):nk]' pivot='key' type='nominal' />
+      <column-instance column='[product_ctgry_mfu]' derivation='None' name='[none:product_ctgry_mfu:nk]' pivot='key' type='nominal' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/ashle/Documents/Personal Data/Northwestern/2019-04  fall MSDS498_Sec56 Capstone/Git_repo/Dashboards/Order_level_dataset.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='11/09/2019 06:18:24 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh>
+            <refresh-event add-from-file-path='Order_level_dataset' increment-value='%null%' refresh-type='create' rows-inserted='99441' timestamp-start='2019-11-09 06:18:24.684' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Rww_ID</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Rww_ID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Rww_ID</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[order_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[order_status]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_status</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_purchase_timestamp</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[order_purchase_timestamp]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_purchase_timestamp</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_approved_at</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[order_approved_at]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_approved_at</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>89060</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_delivered_carrier_date</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[order_delivered_carrier_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_delivered_carrier_date</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>78183</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_delivered_customer_date</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[order_delivered_customer_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_delivered_customer_date</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>93352</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>order_estimated_delivery_date</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[order_estimated_delivery_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>order_estimated_delivery_date</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1090</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_unique_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_unique_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_unique_id</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_zip_code_prefix</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[customer_zip_code_prefix]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_zip_code_prefix</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19734</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_city</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_city]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_city</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3491</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_state</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>payment_type_mfu</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[payment_type_mfu]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>payment_type_mfu</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_pd</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_pd]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_pd</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20032</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>pmt_mthds_used</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[pmt_mthds_used]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>pmt_mthds_used</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>installments_used_ttl</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[installments_used_ttl]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>installments_used_ttl</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>39</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>payment_types_used</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[payment_types_used]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>payment_types_used</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>nbr_items</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[nbr_items]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>nbr_items</remote-alias>
+              <ordinal>18</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_price]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_price</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4101</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_freight</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_freight]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_freight</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7213</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ship_limit_final</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[ship_limit_final]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ship_limit_final</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>83809</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ship_limit_initial</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[ship_limit_initial]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ship_limit_initial</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>83809</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>nbr_sellers</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[nbr_sellers]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>nbr_sellers</remote-alias>
+              <ordinal>23</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>nbr_products</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[nbr_products]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>nbr_products</remote-alias>
+              <ordinal>24</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_id_mfu</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seller_id_mfu]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seller_id_mfu</remote-alias>
+              <ordinal>25</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3302</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_id_mfu</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_id_mfu]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>product_id_mfu</remote-alias>
+              <ordinal>26</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>16654</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seller_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seller_id</remote-alias>
+              <ordinal>27</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3302</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_zip_code_prefix</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[seller_zip_code_prefix]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seller_zip_code_prefix</remote-alias>
+              <ordinal>28</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2700</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_city</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seller_city]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seller_city</remote-alias>
+              <ordinal>29</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>901</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>seller_state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[seller_state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>seller_state</remote-alias>
+              <ordinal>30</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>nbr_photos</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[nbr_photos]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>nbr_photos</remote-alias>
+              <ordinal>31</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>30</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_wt</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_wt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_wt</remote-alias>
+              <ordinal>32</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2402</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_length</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_length]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_length</remote-alias>
+              <ordinal>33</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>250</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_height</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_height]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_height</remote-alias>
+              <ordinal>34</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>262</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ttl_width</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[ttl_width]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>ttl_width</remote-alias>
+              <ordinal>35</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>225</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>product_ctgry_mfu</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[product_ctgry_mfu]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>product_ctgry_mfu</remote-alias>
+              <ordinal>36</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>131</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>nbr_rws</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[nbr_rws]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>nbr_rws</remote-alias>
+              <ordinal>37</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_score</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_score]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_score</remote-alias>
+              <ordinal>38</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>earliest_review_dt</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[earliest_review_dt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>earliest_review_dt</remote-alias>
+              <ordinal>39</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>latest_review_dt</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[latest_review_dt]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>latest_review_dt</remote-alias>
+              <ordinal>40</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>99441</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lat_customer</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[lat_customer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lat_customer</remote-alias>
+              <ordinal>41</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19538</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>long_customer</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[long_customer]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>long_customer</remote-alias>
+              <ordinal>42</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>19538</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>lat_seller</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[lat_seller]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>lat_seller</remote-alias>
+              <ordinal>43</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2711</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>long_seller</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[long_seller]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>long_seller</remote-alias>
+              <ordinal>44</ordinal>
+              <family>Order_level_dataset.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2711</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.480923' measure-ordering='alphabetic' measure-percentage='0.463177' parameter-percentage='0.0559006' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:product_ctgry_mfu:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;bed_bath_table&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;fashio_female_clothing&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;home_confort&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;tablets_printing_image&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;construction_tools_safety&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;furniture_decor&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;perfumery&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;arts_and_craftmanship&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;diapers_and_hygiene&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;health_beauty&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;small_appliances&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;cds_dvds_musicals&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;fashion_shoes&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;kitchen_dining_laundry_garden_furniture&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;books_general_interest&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;fashion_bags_accessories&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;home_construction&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;telephony&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;audio&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;drinks&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;home_appliances&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;small_appliances_home_oven_and_coffee&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;construction_tools_construction&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;food_drink&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;office_furniture&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;agro_industry_and_commerce&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;cool_stuff&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;furniture_living_room&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;pet_shop&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;computers_accessories&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;flowers&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;music&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;auto&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;dvds_blu_ray&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;home_appliances_2&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;sports_leisure&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;christmas_supplies&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;fashion_sport&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;la_cuisine&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;cine_photo&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;fashion_underwear_beach&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;luggage_accessories&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;consoles_games&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;food&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;musical_instruments&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;construction_tools_lights&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;furniture_bedroom&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;party_supplies&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;books_imported&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;fashion_childrens_clothes&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;housewares&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;toys&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;baby&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;electronics&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;home_comfort_2&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;stationery&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;air_conditioning&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;costruction_tools_garden&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;furniture_mattress_and_upholstery&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;security_and_services&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;computers&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;fixed_telephony&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;market_place&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;books_technical&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;fashion_male_clothing&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;industry_commerce_and_business&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;watches_gifts&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;art&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;costruction_tools_tools&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;garden_tools&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;signaling_and_security&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:GrpByCalcField_DeliveryTreemap (copy):nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;MS&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;pet_shop&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;(All - Ungrouped)&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;1&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;AL&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;baby&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;In-State Customer&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Late&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;SE&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;5&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;ES&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;furniture_decor&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;4&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;PE&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;MT&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;signaling_and_security&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;garden_tools&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;GO&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;14&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;RS&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;BA&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;bed_bath_table&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;SP&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;8&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;RN&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;home_construction&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;MA&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;PI&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;PR&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;RO&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;SC&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;3&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;PA&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;watches_gifts&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;6&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;housewares&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;MG&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;2&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;CE&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;construction_tools_lights&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;On Time&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Out-of-State Customer&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;TO&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;RJ&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;PB&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;12&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;DF&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;electronics&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='GrpByField_DeliveryTreemap_param' datatype='string' name='[GrpByField_DeliveryTreemap_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;Customer State&quot;'>
+          <calculation class='tableau' formula='&quot;Customer State&quot;' />
+        </column>
+        <column caption='SellerID_param' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='4'>
+          <calculation class='tableau' formula='4' />
+        </column>
+        <column caption='GrpByField_Trends_param' datatype='string' name='[SellerID_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;OnTime to Carrier&quot;'>
+          <calculation class='tableau' formula='&quot;OnTime to Carrier&quot;' />
+        </column>
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 3'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{B9F704C9-3F8E-455B-AC8B-7E6F9A9B0365}' />
+    </worksheet>
+    <worksheet name='delivery treemap'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Delivery Treemap</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Order_level_dataset' name='federated.15lmwaa1vbsodb0zrc27s1ezbcff' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='GrpByField_DeliveryTreemap_param' datatype='string' name='[GrpByField_DeliveryTreemap_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;Customer State&quot;'>
+              <calculation class='tableau' formula='&quot;Customer State&quot;' />
+            </column>
+            <column caption='SellerID_param' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='4'>
+              <calculation class='tableau' formula='4' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.15lmwaa1vbsodb0zrc27s1ezbcff'>
+            <column caption='Ontime_To_Cust_Flag' datatype='string' name='[Calculation_1445655533181300736]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [order_delivered_customer_date] &gt; dateadd(&apos;day&apos;, 1, [order_estimated_delivery_date]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+            </column>
+            <column caption='Pct_Late_to_Carrier' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665 1]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CoUNT( IF [Ontime_To_Cust_Flag (copy)]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+            </column>
+            <column caption='Pct_Late_to_Cust' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CoUNT( IF [Calculation_1445655533181300736]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+            </column>
+            <column caption='Seller_Param_Filter' datatype='boolean' name='[Calculation_1445655533421211650]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[seller_id] = CASE [Parameters].[Parameter 1]&#13;&#10;WHEN 1 THEN &quot;6560211a19b47992c3666cc44a7e94c0&quot;&#13;&#10;WHEN 2 THEN &quot;4a3ca9315b744ce9f8e9374361493884&quot;&#13;&#10;WHEN 3 THEN &quot;cc419e0650a3c5ba77189a1882b7556a&quot;&#13;&#10;WHEN 4 THEN &quot;1f50f920176fa81dab994f9023523100&quot;&#13;&#10;WHEN 5 THEN &quot;da8622b14eb17ae2831f4ac5b9dab84a&quot;&#13;&#10;WHEN 6 THEN &quot;955fee9216a65b617aa5c0531780ce60&quot;&#13;&#10;WHEN 7 THEN &quot;ea8482cd71df3c1969d7b9473ff13abc&quot;&#13;&#10;WHEN 8 THEN &quot;7a67c85e85bb2ce8582c35f2203ad736&quot;&#13;&#10;WHEN 9 THEN &quot;4869f7a5dfa277a7dca6462dcf3b52b2&quot;&#13;&#10;WHEN 10 THEN &quot;3d871de0142ce09b7081e2b9d1733cb1&quot;&#13;&#10;WHEN 11 THEN &quot;7c67e1448b00f6e969d365cea6b010ab&quot;&#13;&#10;WHEN 12 THEN &quot;8b321bb669392f5163d04c59e235e066&quot;&#13;&#10;WHEN 13 THEN &quot;1025f0e2d44d7041d6cf58b6550e0bfa&quot;&#13;&#10;ELSE [seller_id]&#13;&#10;END' />
+            </column>
+            <column caption='GrpByCalcField_DeliveryTreemap' datatype='string' name='[Calculation_1445655533500497923]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='CASE [Parameters].[GrpByField_DeliveryTreemap_param (copy)]&#13;&#10;WHEN &quot;Customer State&quot; THEN [customer_state]&#13;&#10;WHEN &quot;OnTime to Carrier&quot; THEN [Ontime_To_Cust_Flag (copy)]&#13;&#10;WHEN &quot;Nbr of Items in Order&quot; THEN str([nbr_items])&#13;&#10;WHEN &quot;InState vs OutOfState Customer&quot; THEN [Calculation_1445655533501517828]&#13;&#10;WHEN &quot;Product Category&quot; THEN [product_ctgry_mfu]&#13;&#10;ELSE [customer_state]&#13;&#10;END' />
+            </column>
+            <column caption='SameState_or_OutOfState_Cust_Flag' datatype='string' name='[Calculation_1445655533501517828]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [customer_state]=[seller_state] then &quot;In-State Customer&quot; ELSE &quot;Out-of-State Customer&quot; END' />
+            </column>
+            <column caption='Ontime_To_Carrier_Flag' datatype='string' name='[Ontime_To_Cust_Flag (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [order_delivered_carrier_date] &gt; dateadd(&apos;day&apos;, 1, [ship_limit_final]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+            </column>
+            <column-instance column='[order_id]' derivation='Count' name='[cnt:order_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer State' datatype='string' name='[customer_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Nbr Items' datatype='real' name='[nbr_items]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1445655533421211650]' derivation='None' name='[none:Calculation_1445655533421211650:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1445655533500497923]' derivation='None' name='[none:Calculation_1445655533500497923:nk]' pivot='key' type='nominal' />
+            <column caption='Order Delivered Carrier Date' datatype='datetime' name='[order_delivered_carrier_date]' role='dimension' type='ordinal' />
+            <column caption='Order Delivered Customer Date' datatype='datetime' name='[order_delivered_customer_date]' role='dimension' type='ordinal' />
+            <column caption='Order Estimated Delivery Date' datatype='datetime' name='[order_estimated_delivery_date]' role='dimension' type='ordinal' />
+            <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+            <column caption='Product Ctgry Mfu' datatype='string' name='[product_ctgry_mfu]' role='dimension' type='nominal' />
+            <column caption='Seller Id' datatype='string' name='[seller_id]' role='dimension' type='nominal' />
+            <column caption='Seller State' datatype='string' name='[seller_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Ship Limit Final' datatype='datetime' name='[ship_limit_final]' role='dimension' type='ordinal' />
+            <column-instance column='[ttl_pd]' derivation='Sum' name='[sum:ttl_pd:qk]' pivot='key' type='quantitative' />
+            <column caption='Ttl Pd' datatype='real' name='[ttl_pd]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1445655533182193665 1]' derivation='User' name='[usr:Calculation_1445655533182193665 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1445655533182193665]' derivation='User' name='[usr:Calculation_1445655533182193665:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1445655533421211650:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' value='543' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.050000000000000003' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' max='0.20000000000000001' min='0.0' num-steps='20' palette='red_green_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' value='% of Orders  Delivered Late to the Customer'>
+              <formatted-text>
+                <run>% of Orders  Delivered Late to the Customer</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-disallow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[cnt:order_id:qk]' />
+              <color column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' />
+              <tooltip column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665 1:qk]' />
+              <text column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533500497923:nk]' />
+              <tooltip column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[sum:ttl_pd:qk]' />
+            </encodings>
+            <customized-tooltip show-buttons='false'>
+              <formatted-text>
+                <run fontcolor='#787878'>&lt;[Parameters].[SellerID_param (copy)]&gt;:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533500497923:nk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'># of Orders:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[cnt:order_id:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Total Value:&#9;</run>
+                <run bold='true'>R$&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[sum:ttl_pd:qk]&gt;</run>
+                <run>Æ&#10;&#10;</run>
+                <run fontcolor='#787878'>Pct Late to Carrier:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665 1:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Pct Late to Cust:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]&gt;</run>
+                <run>Æ&#10;&#10;</run>
+                <run fontcolor='#787878'>Seller:&#9;&lt;[Parameters].[Parameter 1]&gt;</run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{4D10DEEC-4BC5-473F-8FA1-E8175B1A499B}' />
+    </worksheet>
+    <worksheet name='delivery trend over time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>% of Orders Delivered Late to the Customer</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Order_level_dataset' name='federated.15lmwaa1vbsodb0zrc27s1ezbcff' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='SellerID_param' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='4'>
+              <calculation class='tableau' formula='4' />
+            </column>
+            <column caption='GrpByField_Trends_param' datatype='string' name='[SellerID_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;OnTime to Carrier&quot;'>
+              <calculation class='tableau' formula='&quot;OnTime to Carrier&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.15lmwaa1vbsodb0zrc27s1ezbcff'>
+            <column caption='Ontime_To_Cust_Flag' datatype='string' name='[Calculation_1445655533181300736]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [order_delivered_customer_date] &gt; dateadd(&apos;day&apos;, 1, [order_estimated_delivery_date]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+            </column>
+            <column caption='Pct_Late_to_Carrier' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665 1]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CoUNT( IF [Ontime_To_Cust_Flag (copy)]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+            </column>
+            <column caption='Pct_Late_to_Cust' datatype='real' default-format='p0.0%' name='[Calculation_1445655533182193665]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='CoUNT( IF [Calculation_1445655533181300736]= &apos;Late&apos; THEN [order_id] END) / COUNT([order_id])' />
+            </column>
+            <column caption='Seller_Param_Filter' datatype='boolean' name='[Calculation_1445655533421211650]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[seller_id] = CASE [Parameters].[Parameter 1]&#13;&#10;WHEN 1 THEN &quot;6560211a19b47992c3666cc44a7e94c0&quot;&#13;&#10;WHEN 2 THEN &quot;4a3ca9315b744ce9f8e9374361493884&quot;&#13;&#10;WHEN 3 THEN &quot;cc419e0650a3c5ba77189a1882b7556a&quot;&#13;&#10;WHEN 4 THEN &quot;1f50f920176fa81dab994f9023523100&quot;&#13;&#10;WHEN 5 THEN &quot;da8622b14eb17ae2831f4ac5b9dab84a&quot;&#13;&#10;WHEN 6 THEN &quot;955fee9216a65b617aa5c0531780ce60&quot;&#13;&#10;WHEN 7 THEN &quot;ea8482cd71df3c1969d7b9473ff13abc&quot;&#13;&#10;WHEN 8 THEN &quot;7a67c85e85bb2ce8582c35f2203ad736&quot;&#13;&#10;WHEN 9 THEN &quot;4869f7a5dfa277a7dca6462dcf3b52b2&quot;&#13;&#10;WHEN 10 THEN &quot;3d871de0142ce09b7081e2b9d1733cb1&quot;&#13;&#10;WHEN 11 THEN &quot;7c67e1448b00f6e969d365cea6b010ab&quot;&#13;&#10;WHEN 12 THEN &quot;8b321bb669392f5163d04c59e235e066&quot;&#13;&#10;WHEN 13 THEN &quot;1025f0e2d44d7041d6cf58b6550e0bfa&quot;&#13;&#10;ELSE [seller_id]&#13;&#10;END' />
+            </column>
+            <column caption='SameState_or_OutOfState_Cust_Flag' datatype='string' name='[Calculation_1445655533501517828]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [customer_state]=[seller_state] then &quot;In-State Customer&quot; ELSE &quot;Out-of-State Customer&quot; END' />
+            </column>
+            <column caption='GrpByCalcField_Trends' datatype='string' name='[GrpByCalcField_DeliveryTreemap (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='CASE [Parameters].[SellerID_param (copy)]&#13;&#10;WHEN &quot;(All - Ungrouped)&quot; THEN &quot;(All - Ungrouped)&quot;&#13;&#10;WHEN &quot;Customer State&quot; THEN [customer_state]&#13;&#10;WHEN &quot;OnTime to Carrier&quot; THEN [Ontime_To_Cust_Flag (copy)]&#13;&#10;WHEN &quot;Nbr of Items in Order&quot; THEN str([nbr_items])&#13;&#10;WHEN &quot;InState vs OutOfState Customer&quot; THEN [Calculation_1445655533501517828]&#13;&#10;WHEN &quot;Product Category&quot; THEN [product_ctgry_mfu]&#13;&#10;ELSE &quot;(All - Ungrouped)&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Ontime_To_Carrier_Flag' datatype='string' name='[Ontime_To_Cust_Flag (copy)]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [order_delivered_carrier_date] &gt; dateadd(&apos;day&apos;, 1, [ship_limit_final]) THEN &apos;Late&apos; else &apos;On Time&apos; END' />
+            </column>
+            <column-instance column='[order_id]' derivation='Count' name='[cnt:order_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer State' datatype='string' name='[customer_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Nbr Items' datatype='real' name='[nbr_items]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1445655533421211650]' derivation='None' name='[none:Calculation_1445655533421211650:nk]' pivot='key' type='nominal' />
+            <column-instance column='[GrpByCalcField_DeliveryTreemap (copy)]' derivation='None' name='[none:GrpByCalcField_DeliveryTreemap (copy):nk]' pivot='key' type='nominal' />
+            <column-instance column='[customer_state]' derivation='None' name='[none:customer_state:nk]' pivot='key' type='nominal' />
+            <column-instance column='[seller_id]' derivation='None' name='[none:seller_id:nk]' pivot='key' type='nominal' />
+            <column caption='Order Delivered Carrier Date' datatype='datetime' name='[order_delivered_carrier_date]' role='dimension' type='ordinal' />
+            <column caption='Order Delivered Customer Date' datatype='datetime' name='[order_delivered_customer_date]' role='dimension' type='ordinal' />
+            <column caption='Order Estimated Delivery Date' datatype='datetime' name='[order_estimated_delivery_date]' role='dimension' type='ordinal' />
+            <column caption='Order Id' datatype='string' name='[order_id]' role='dimension' type='nominal' />
+            <column caption='Order Purchase Timestamp' datatype='datetime' name='[order_purchase_timestamp]' role='dimension' type='ordinal' />
+            <column caption='Product Ctgry Mfu' datatype='string' name='[product_ctgry_mfu]' role='dimension' type='nominal' />
+            <column caption='Seller Id' datatype='string' name='[seller_id]' role='dimension' type='nominal' />
+            <column caption='Seller State' datatype='string' name='[seller_state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='Ship Limit Final' datatype='datetime' name='[ship_limit_final]' role='dimension' type='ordinal' />
+            <column-instance column='[ttl_pd]' derivation='Sum' name='[sum:ttl_pd:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[order_purchase_timestamp]' derivation='Month-Trunc' name='[tmn:order_purchase_timestamp:qk]' pivot='key' type='quantitative' />
+            <column caption='Ttl Pd' datatype='real' name='[ttl_pd]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1445655533182193665 1]' derivation='User' name='[usr:Calculation_1445655533182193665 1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1445655533182193665]' derivation='User' name='[usr:Calculation_1445655533182193665:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1445655533421211650:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:customer_state:nk]'>
+            <groupfilter from='&quot;AC&quot;' function='range' level='[none:customer_state:nk]' to='&quot;TO&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:seller_id:nk]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:seller_id:nk]' member='%null%' />
+              <groupfilter from='&quot;0015a82c2db000af6aaaf3ae2ecb0532&quot;' function='range' level='[none:seller_id:nk]' to='&quot;ffff564a4f9085cd26170f4732393726&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:seller_id:nk]</column>
+            <column>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:customer_state:nk]</column>
+            <column>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[tmn:order_purchase_timestamp:qk]' scope='cols' value='Purchase Month' />
+            <format attr='title' class='0' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' scope='rows' value='' />
+            <format attr='width' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' value='40' />
+            <format attr='height' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[tmn:order_purchase_timestamp:qk]' value='62' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]' value='[GrpByField_Trends_param]'>
+              <formatted-text>
+                <run>[GrpByField_Trends_param]</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-disallow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]' />
+              <tooltip column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665 1:qk]' />
+              <tooltip column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[cnt:order_id:qk]' />
+              <tooltip column='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[sum:ttl_pd:qk]' />
+            </encodings>
+            <customized-tooltip show-buttons='false'>
+              <formatted-text>
+                <run fontcolor='#787878'>&lt;[Parameters].[SellerID_param (copy)]&gt;:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Purchase Month:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[tmn:order_purchase_timestamp:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'># of Orders:&#9;&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[cnt:order_id:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Total Value:&#9;&#9;</run>
+                <run bold='true'>R$&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[sum:ttl_pd:qk]&gt;</run>
+                <run>Æ&#10;&#10;</run>
+                <run fontcolor='#787878'>Pct Late to Customer:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#787878'>Pct Late to Carrier:&#9;</run>
+                <run bold='true'>&lt;[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665 1:qk]&gt;</run>
+                <run>Æ&#10;&#10;</run>
+                <run fontcolor='#787878'>SellerID:&#9;&lt;[Parameters].[Parameter 1]&gt;</run>
+              </formatted-text>
+            </customized-tooltip>
+          </pane>
+        </panes>
+        <rows>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]</rows>
+        <cols>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[tmn:order_purchase_timestamp:qk]</cols>
+      </table>
+      <simple-id uuid='{8DB9B4D5-A063-4506-8F0E-8C14E9D858FD}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Delivery Treemap'>
+      <style />
+      <size maxheight='850' maxwidth='320' minheight='650' minwidth='320' sizing-mode='range' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='GrpByField_DeliveryTreemap_param' datatype='string' name='[GrpByField_DeliveryTreemap_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;Customer State&quot;'>
+          <calculation class='tableau' formula='&quot;Customer State&quot;' />
+          <members>
+            <member value='&quot;Customer State&quot;' />
+            <member value='&quot;OnTime to Carrier&quot;' />
+            <member value='&quot;Nbr of Items in Order&quot;' />
+            <member value='&quot;InState vs OutOfState Customer&quot;' />
+            <member value='&quot;Product Category&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97916' id='13' param='horz' type='layout-flow' w='95000' x='2500' y='1042'>
+            <zone h='97916' id='8' param='horz' type='layout-flow' w='95000' x='2500' y='1042'>
+              <zone h='97916' id='5' param='horz' type='layout-flow' w='95000' x='2500' y='1042'>
+                <zone h='97916' id='3' type='layout-basic' w='95000' x='2500' y='1042'>
+                  <zone h='77862' id='1' name='delivery treemap' w='95000' x='2500' y='1042'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='10027' id='6' name='delivery treemap' pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' type='color' w='95000' x='2500' y='78904'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='10027' id='14' mode='compact' param='[Parameters].[GrpByField_DeliveryTreemap_param (copy)]' type='paramctrl' w='95000' x='2500' y='88931'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout active='true' name='Phone'>
+          <zones>
+            <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='91904' id='16' param='horz' type='layout-flow' w='95000' x='2500' y='1199'>
+                <zone h='91904' id='11' param='horz' type='layout-flow' w='95000' x='2500' y='1199'>
+                  <zone h='91904' id='5' param='horz' type='layout-flow' w='95000' x='2500' y='1199'>
+                    <zone h='91904' id='3' type='layout-basic' w='95000' x='2500' y='1199'>
+                      <zone h='83958' id='1' name='delivery treemap' show-title='false' w='95000' x='2500' y='1199'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='7946' id='6' name='delivery treemap' pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' type='color' w='95000' x='2500' y='85157'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='5698' id='17' type='layout-flow' w='95000' x='2500' y='93103'>
+                <zone h='5698' id='14' mode='compact' param='[Parameters].[GrpByField_DeliveryTreemap_param (copy)]' type='paramctrl' w='95000' x='2500' y='93103'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{7FA7422D-4832-4F81-85F4-72373E3C5455}' />
+    </dashboard>
+    <dashboard name='PctLate_ToCust'>
+      <style />
+      <size maxheight='650' maxwidth='420' minheight='650' minwidth='420' preset-index='6' sizing-mode='fixed' />
+      <datasources>
+        <datasource name='Parameters' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='GrpByField_Trends_param' datatype='string' name='[SellerID_param (copy)]' param-domain-type='list' role='measure' type='nominal' value='&quot;OnTime to Carrier&quot;'>
+          <calculation class='tableau' formula='&quot;OnTime to Carrier&quot;' />
+          <members>
+            <member value='&quot;(All - Ungrouped)&quot;' />
+            <member value='&quot;InState vs OutOfState Customer&quot;' />
+            <member value='&quot;OnTime to Carrier&quot;' />
+            <member value='&quot;Nbr of Items in Order&quot;' />
+            <member value='&quot;Customer State&quot;' />
+            <member value='&quot;Product Category&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='17' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='80154' id='20' param='horz' type='layout-flow' w='96190' x='1905' y='1231'>
+            <zone h='80154' id='18' type='layout-basic' w='96190' x='1905' y='1231'>
+              <zone h='80154' id='9' name='delivery trend over time' show-title='false' w='96190' x='1905' y='1231'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='17384' id='22' param='vert' type='layout-flow' w='96190' x='1905' y='81385'>
+            <zone h='7385' id='21' name='delivery trend over time' pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]' show-title='false' type='color' w='96190' x='1905' y='81385'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone custom-title='true' h='8000' id='57' mode='compact' param='[Parameters].[SellerID_param (copy)]' type='paramctrl' w='96190' x='1905' y='88770'>
+              <formatted-text>
+                <run>Create series for each value of:</run>
+              </formatted-text>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='63' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97538' id='64' param='vert' type='layout-flow' w='96190' x='1905' y='1231'>
+                <zone fixed-size='280' h='80154' id='9' is-fixed='true' name='delivery trend over time' show-title='false' w='96190' x='1905' y='1231'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='7385' id='21' name='delivery trend over time' pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]' show-title='false' type='color' w='96190' x='1905' y='81385'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone custom-title='true' h='8000' id='57' mode='compact' param='[Parameters].[SellerID_param (copy)]' type='paramctrl' w='96190' x='1905' y='88770'>
+                  <formatted-text>
+                    <run>Create series for each value of:</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{F1D77A54-8E5D-4189-A333-2275A10E7758}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='delivery trend over time'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card mode='compact' param='[Parameters].[SellerID_param (copy)]' type='parameter' />
+          </strip>
+          <strip size='2147483647'>
+            <card pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]' show-title='false' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:customer_state:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:seller_id:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[yr:order_purchase_timestamp:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{7308B17B-4F7C-4B4A-88B6-304BF512276B}' />
+    </window>
+    <window class='worksheet' name='delivery treemap'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card mode='type_in' param='[Parameters].[Parameter 1]' type='parameter' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='2147483647'>
+            <card mode='compact' param='[Parameters].[GrpByField_DeliveryTreemap_param (copy)]' type='parameter' />
+          </strip>
+          <strip size='118'>
+            <card pane-specification-id='0' param='[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[cnt:order_id:qk]</field>
+                  <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533500497923:nk]</field>
+                  <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[sum:ttl_pd:qk]</field>
+                  <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665 1:qk]</field>
+                  <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>1355</value>
+                <value>&quot;garden_tools&quot;</value>
+                <value>135812.15000000023</value>
+                <value>0.030996309963099631</value>
+                <value>0.089298892988929887</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533421211650:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:Calculation_1445655533500497923:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:customer_state:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:order_id:nk]</field>
+            <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[usr:Calculation_1445655533182193665:qk]</field>
+          </color-one-way>
+        </highlight>
+        <floating-toolbar-visibility value='2' />
+      </viewpoint>
+      <simple-id uuid='{F11918F3-C7C8-40F2-B87D-544CE3F12CDE}' />
+    </window>
+    <window class='dashboard' name='PctLate_ToCust'>
+      <viewpoints>
+        <viewpoint name='delivery trend over time'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.15lmwaa1vbsodb0zrc27s1ezbcff].[none:GrpByCalcField_DeliveryTreemap (copy):nk]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <device-preview mobileapp-chrome-visible='false' visible='true'>
+        <device is-portrait='true' name='Generic Phone' type='Phone' />
+      </device-preview>
+      <simple-id uuid='{D71EFD9C-13AA-438D-A9B3-C0F0C47827CC}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0D3ABFB8-DB2C-4CF0-A526-29A2F8EF51BF}' />
+    </window>
+    <window class='dashboard' name='Delivery Treemap'>
+      <viewpoints>
+        <viewpoint name='delivery treemap' />
+      </viewpoints>
+      <active id='-1' />
+      <device-preview mobileapp-chrome-visible='false' selected='Tablet' visible='true'>
+        <device name='Generic Phone' type='Phone' />
+      </device-preview>
+      <simple-id uuid='{F9E31C03-3633-4688-B1B5-2EE0E79E88C9}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Delivery Treemap' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='PctLate_ToCust' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='delivery treemap' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACz0lEQVR4nO3WvUsVYByG4TdzyKIPMh2yLKsp+lqC/vHG5sbWIELpUBgYFioJkqc1FM7m
+      OdB9XeM7PcvN+7s0nU6nA6KWFj0AFkkApAmAtOWzD7tHX8fkcGcBU2D+zgXw5XB7vJu8XcQW
+      mDsnEGkCIO3cCfSvbx93x95kf9x/dnfsfJiMG2vXx+PXD+a1DS7czB/gx2R/rG+tjjEdY/PF
+      xjg5Phmnf07ntQ0u3MwAnrzZGgd7R+Pn7q/x6f32WLm5MpYuu5r4f8w8gb5/3hu/D47H5vON
+      sf7ozrh26+q8dsFczAzg4at789oBC+GeIU0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDS
+      BECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+      AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApC2ffVi9sjae3n65iC0wd38ByWczli5czTQAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='delivery trend over time' width='192'>
+      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
+      AAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
